@@ -1,0 +1,75 @@
+<div class = "main-back">
+
+<%= render "shared/header" %>
+
+<div class = "main">
+
+<div class='transaction-contents'>
+  <div class='transaction-main'>
+    <h1 class='transaction-title-text'>
+      目的地に関する投稿
+    </h1>
+    <%# 購入内容の表示 %>
+    <%# <div class='buy-item-info'> %>
+      <%# <%= image_tag @item.image, class: 'buy-item-img' %>
+      <%# <div class='buy-item-right-content'> %>
+        <h2 class='buy-item-text'>
+          <%= @destination.name %>
+        </h2>
+
+      </div>
+    </div>
+    <%# /購入内容の表示 %>
+
+    <%= form_with model: @article, url: destination_articles_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        投稿写真
+        <%# <span class="indispensable">必須</span> %>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+        <%# <%= f.file_field :images, direct_upload: true, multiple: true %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+    
+    <%# 配送先の入力 %>
+    <div class='shipping-address-form'>
+      <h1 class='info-input-haedline'>
+        配送先入力
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">タイトル</label>
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.text_field :title, class:"input-default", id:"postal-code", placeholder:"タイトル", maxlength:"30" %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">内容</label>
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.text_area :detail, class:"input-default", id:"city", placeholder:"内容", rows: "10" %>
+      </div>
+
+    <div class='buy-btn'>
+      <%= f.submit "投稿する" ,class:"buy-red-btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%# <%= render "shared/second-footer"%>
+
+<%# 
+      <%= form.text_field :image, placeholder: "Image Url" %>
+      <%# <%= form.text_area :text, placeholder: "text", rows: "10" %>
+      <%# <%= form.submit "SEND" %>

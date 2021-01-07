@@ -1,0 +1,58 @@
+<div class='main-back'>
+
+<%= render "shared/header" %>
+
+
+<div class='main'>
+
+
+　 <ul class='item-lists'>
+
+     <% @destinations.each do |destination| %>
+
+        <li class='list'>
+
+          <%= link_to destination_path(destination.id) do %>
+
+           <%# <div class="destinations"> %>
+              <%# <%= image_tag destination.image.variant(resize: '500x500'), class: "item-img" if destination.image.attached? %> 
+           <%# </div> %>
+
+          <%# <div class='item-img-content' style="background-image: url(<%= destination.image %>
+          <%# <%= image_tag destination.image, class: "item-img" if destination.image.attached? %>
+
+        <%# <%= destination.images.each do |image|%>
+        <% if destination.images.count > 0 %>
+          <div class='item-img-content' style="background-image: url(<%= destination.images %>);">
+          <%= image_tag destination.images.first, class: "item-img" %>
+         </div>
+        <% end %>
+
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= destination.name %>
+          </h3>
+
+        </div>
+        <% end %>
+       <% end %>
+      </li> 
+
+
+
+  <%# 商品一覧 %>
+
+  <%# /商品一覧 %>
+</div>
+<%# <div class='purchase-btn'> %>
+  <%# <span class='purchase-btn-text'>出品する</span> %>
+
+  <%# <a href = destinations/new> %>
+    <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %> %>
+  <%# </a> %>
+<%# </div> %>
+
+<%# <%= render "shared/footer" %>
+
+
+</div>

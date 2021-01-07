@@ -1,0 +1,135 @@
+<div class = "main-back">
+
+<%= render "shared/header" %>
+
+<div class = "main">
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+   <h1>目的地</h1>
+    <h2 class="another-item">
+      <%= @destination.name %>
+    </h2>
+
+
+    <%# <%= image_tag @destination.image.variant(resize: '400x400'), class: "item-img" if @destination.image.attached? %>
+  <%# <%= @destination.images.each do |image|%>
+    <%# <%= image_tag image.variant(resize: '500x500'), class: "item-img" %>
+  <%# <% end %>
+
+        <% if @destination.images.count > 0 %>
+          <div class='item-img-content' style="background-image: url(<%= @destination.images %>);">
+          <%= image_tag @destination.images.second, class: "bus_stop_item-img" %>
+         </div>
+        <% end %>
+
+
+    <table class="info-table">
+      <tbody>
+        <tr>
+          <th class="info-item">バス停</th>
+          <td class="info-value"><%= @destination.bus_stop.name %></td>
+        </tr>
+        <tr>
+          <th class="info-item">路線</th>
+          <td class="info-value"><%= @destination.line.name %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+     <%# <% @article.each do |article| %> 
+    <%# <% if @article.empty? %>
+      <%# <li class='list'> %>
+        <%# <%= link_to '#' do %>
+        <%# <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+        <%# <div class='item-info'> %>
+          <%# <h3 class='item-name'> %>
+            <%# 商品を出品してね！ %>
+          <%# </h3> %>
+              <%# <%= image_tag "star.png", class:"star-icon" %>
+            <%# </div> %>
+          <%# </div> %>
+        <%# </div> %>
+        <%# <% end %> 
+
+
+
+    <%= link_to '状況を投稿しよう！', destination_articles_path(@destination.id), method: :get, class:"item-red-btn"%>
+
+<div class = "table-back">
+
+     <% @articles.each do |article| %>
+
+
+
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= article.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">投稿日</th>
+          <td class="detail-value"><%= article.created_at %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= article.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">内容</th>
+          <td class="detail-value"><%= article.detail %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">画像</th>
+          <td class='item-img-content' style="background-image": url ><%= image_tag article.image, class: "article_image_item-img" %></td>
+        </tr>
+        
+        <%# article.images.each do |image| %>
+          <%#= image_tag image, class: "item-img" %>
+          <%# end %>
+
+          
+
+      </tbody>
+    </table>
+
+
+
+    <% end %>
+
+</div>
+
+</div>
+
+</div>
+
+<%# articleを表示する %>
+    <%# <% if @article = nil %> 
+    <%# <% then %> 
+      <%# <li class='list'> %>
+        <%# <%= link_to '#' do %> 
+        <%# <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+        <%# <div class='item-info'> %>
+
+
+        <%# </div> %>
+        <%# <% end %> 
+      <%# </li> %>
+    <%# <% else %> 
+     <%# <% @articles.each do |article| %>
+        <%# <li class='list'> %>
+          <%# <%= link_to destination_article_path(article.id) do %>
+
+
+      <%# <% end %>
+
+    <%# <% end %> 
+
+
+
+

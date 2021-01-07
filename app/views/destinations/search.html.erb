@@ -1,0 +1,62 @@
+<div class='main-back'>
+
+<%= render "shared/header" %>
+
+
+<div class='main'>
+
+
+
+<%# <%= form_with(url: search_destinations_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%# <%= form.submit "検索", class: "search-btn" %>
+<%# <% end %>
+ <%# <div class="contents row"> %>
+  <%# <% @articles.each do |article| %>
+    <%# <%= render partial: "destination", locals: { destination: destination } %>
+   <%# <% end %>
+ <%# </div>  %>
+
+
+<div class = "table-back">
+
+     <% @articles.each do |article| %>
+     <%# <% locals: { article: article } %>
+
+
+
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= article.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">投稿日</th>
+          <td class="detail-value"><%= article.created_at %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= article.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">内容</th>
+          <td class="detail-value"><%= article.detail %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">画像</th>
+          <td class='item-img-content' style="background-image": url ><%= image_tag article.image, class: "article_image_item-img" %></td>
+        </tr>
+
+          
+
+      </tbody>
+    </table>
+
+  <% end %>
+
+  </div>
+
+  </div>
+  </div>

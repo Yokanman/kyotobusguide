@@ -1,0 +1,25 @@
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @article.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">投稿日</th>
+          <td class="detail-value"><%= @article.created_at %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= @article.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">内容</th>
+          <td class="detail-value"><%= @article.detail %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="sell-btn-contents">
+      <%=link_to 'もどる', destination_path, class:"back-btn" %>
+    </div>
